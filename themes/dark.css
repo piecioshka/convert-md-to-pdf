@@ -1,0 +1,18 @@
+@import "./default.css";
+
+body {
+    background: #000;
+    color: #fff;
+}
+
+pre {
+    border-radius: 3px;
+}
+
+img {
+    border-radius: 5px;
+}
+
+code {
+    color: black;
+}

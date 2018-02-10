@@ -1,0 +1,10 @@
+@import "./default.css";
+
+body {
+    background: rgb(255, 123, 71);
+    color: #fff;
+}
+
+code {
+    color: black;
+}
