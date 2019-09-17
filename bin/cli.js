@@ -1,19 +1,29 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const argv = require('yargs').argv;
+const yargs = require('yargs')
+    .usage('Usage: $0 --themes [path/to/file.css] path/to/file.md')
+    .example('$0 --themes ~/themes/nordtheme.css meetup.md', '')
+    .help('h')
+    .option('t', {
+        alias: 'theme',
+        default: 'default',
+        description: 'Path to CSS file which will be applied to build a PDF file'
+    });
+const argv = yargs.argv;
 
 const { buildPDF } = require('../');
-const root = path.join(__dirname, '..');
 
-const DEFAULT_THEME = 'default';
+const source = argv._[0];
+const theme = String(argv.theme);
 
-const filepath = argv._[0];
-const theme = argv.t || argv.theme || DEFAULT_THEME;
+if (!source) {
+    yargs.showHelp();
+    process.exit();
+}
 
 buildPDF({
-    source: filepath,
-    theme: path.join(root, 'themes', theme + '.css'),
+    source,
+    theme,
     cb(file) {
         console.log('Created:', file);
     }

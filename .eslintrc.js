@@ -14,6 +14,7 @@ module.exports = {
 
     // http://eslint.org/docs/rules/
     rules: {
+        'no-process-exit': 'off',
         'no-implicit-globals': 'off',
         'require-jsdoc': 'off',
         'no-invalid-this': 'off',
