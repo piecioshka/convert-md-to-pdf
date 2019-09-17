@@ -34,7 +34,7 @@ describe('General :: PDFHelper', () => {
         buildPDF({
             source: path.join(root, 'mock/example.md'),
             target: path.join(root, 'dist/example-dark-theme.pdf'),
-            theme: path.join(root, 'themes', 'dark.css'),
+            theme: path.join(root, 'themes', 'default.css'),
             cb(file) {
                 console.log('Created', file);
                 expect(true).toEqual(true);
