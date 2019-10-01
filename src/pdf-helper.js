@@ -20,6 +20,7 @@ function buildOptions() {
         //     bottom: '2cm',
         //     left: '2cm'
         // }),
+        // paperOrientation: 'landscape',
         remarkable: {
             html: true,
             breaks: true,
