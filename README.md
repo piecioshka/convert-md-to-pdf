@@ -44,7 +44,7 @@ convert-markdown-to-pdf /tmp/source.md
 
 ```bash
 convert-markdown-to-pdf /tmp/source.md -t ~/projects/convert-markdown-to-pdf-themes/dark.css
-convert-markdown-to-pdf /tmp/source.md --theme /projects/convert-markdown-to-pdf-themes/orange.css
+convert-markdown-to-pdf /tmp/source.md --theme ~/projects/convert-markdown-to-pdf-themes/orange.css
 ```
 
 ### :arrow_right: Use case: Custom theme
