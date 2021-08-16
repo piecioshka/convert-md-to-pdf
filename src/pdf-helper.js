@@ -24,7 +24,6 @@ function buildOptions() {
         remarkable: {
             html: true,
             breaks: true,
-            linkify: true
         },
         preProcessMd: () => {
             const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
