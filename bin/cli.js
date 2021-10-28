@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs')
-    .usage('Usage: $0 --themes [path/to/file.css] path/to/file.md')
-    .example('$0 --themes ~/themes/nordtheme.css meetup.md', '')
+    .usage('Usage: $0 --theme [path/to/file.css] path/to/file.md')
+    .example('$0 --theme ~/themes/nordtheme.css meetup.md', '')
     .help('h')
     .option('t', {
         alias: 'theme',
