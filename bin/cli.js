@@ -7,7 +7,8 @@ const yargs = require('yargs')
     .option('t', {
         alias: 'theme',
         default: 'default',
-        description: 'Path to CSS file which will be applied to build a PDF file'
+        description:
+            'Path to CSS file which will be applied to build a PDF file',
     });
 const argv = yargs.argv;
 
@@ -26,5 +27,5 @@ buildPDF({
     theme,
     cb(file) {
         console.log('Created:', file);
-    }
+    },
 });

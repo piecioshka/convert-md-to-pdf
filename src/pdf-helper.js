@@ -35,7 +35,7 @@ function buildOptions() {
             });
             splitter.pipe(replacer);
             return duplexer(splitter, replacer);
-        }
+        },
     };
 }
 
@@ -70,8 +70,8 @@ function buildPDF(settings) {
     const cb = settings.cb;
 
     const opts = buildOptions();
-    opts.cssPath = settings.theme
-        || path.join(__dirname, '..', 'themes', 'default.css');
+    opts.cssPath =
+        settings.theme || path.join(__dirname, '..', 'themes', 'default.css');
 
     markdownpdf(opts)
         .from(source)

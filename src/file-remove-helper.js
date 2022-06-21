@@ -6,7 +6,7 @@ const path = require('path');
 
 const { listDirectory } = require('./directory-helper');
 
-const isPDFFilename = (/^(.*)\.pdf$/);
+const isPDFFilename = /^(.*)\.pdf$/;
 
 function removeFile(file, cb) {
     fs.unlink(file, (err) => {

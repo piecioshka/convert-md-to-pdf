@@ -1,10 +1,10 @@
 'use strict';
 
 const path = require('path');
-const { buildPDF } = require('../../index');
-const root = path.join(__dirname, '..', '..');
+const { buildPDF } = require('./pdf-helper');
+const root = path.join(__dirname, '..');
 
-describe('General :: PDFHelper', () => {
+describe('PDFHelper', () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
 
     it('should generate from markdown file (only source)', (done) => {
@@ -14,7 +14,7 @@ describe('General :: PDFHelper', () => {
                 console.log('Created', file);
                 expect(true).toEqual(true);
                 done();
-            }
+            },
         });
     });
 
@@ -26,7 +26,7 @@ describe('General :: PDFHelper', () => {
                 console.log('Created', file);
                 expect(true).toEqual(true);
                 done();
-            }
+            },
         });
     });
 
@@ -39,7 +39,7 @@ describe('General :: PDFHelper', () => {
                 console.log('Created', file);
                 expect(true).toEqual(true);
                 done();
-            }
+            },
         });
     });
 });

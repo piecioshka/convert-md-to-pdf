@@ -9,7 +9,7 @@ module.exports = {
         commonjs: true,
         // amd: true,
         // jquery: true,
-        jasmine: true
+        jasmine: true,
     },
 
     // http://eslint.org/docs/rules/
@@ -21,9 +21,9 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-use-before-define': 'off',
         'no-console': 'off',
-        'strict': 'off'
+        strict: 'off',
     },
 
     // List of global variables.
-    globals: {}
+    globals: {},
 };

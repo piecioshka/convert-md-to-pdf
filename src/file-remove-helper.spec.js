@@ -1,8 +1,8 @@
 'use strict';
 
-const { removeAllPDFFiles } = require('../../index');
+const { removeAllPDFFiles } = require('./file-remove-helper');
 
-describe('General :: FileRemoveHelper', () => {
+describe('FileRemoveHelper', () => {
     it('removeAllPDFFiles', () => {
         expect(typeof removeAllPDFFiles === 'function').toEqual(true);
     });
