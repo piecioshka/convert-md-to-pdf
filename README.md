@@ -7,6 +7,8 @@
 
 :hammer: Convert Markdown file to PDF.
 
+> Give a ⭐️ if this project helped you!
+
 ## Features
 
 * :white_check_mark: Build PDF file form Markdown file
@@ -66,10 +68,6 @@ npm run coverage
 
 Contributions, issues and feature requests are welcome!<br />
 Feel free to check [issues page](/issues/).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
 
 ## License
 
