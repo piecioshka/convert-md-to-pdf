@@ -13,22 +13,20 @@
 > This text is a blockquote
 
 ```html
-<html>
-<body>
-    <p>Hello World!</p>
-</body>
-</html>
+<article>
+  <p>Hello World</p>
+</article>
 ```
 
-- Item
-- Item with `some code`
-- Item
+- Item with ~~strikes text~~
+- Item with `some code text`
+- Item with <u>underline text</u>
 
 <hr/>
 
-0. Item
+0. Item with _emphasis text_
 0. Item with **some bold text**
-0. Item
+0. Item with <mark>marked text</mark>
 
 <hr/>
 
@@ -37,7 +35,7 @@ H1 | H2 | H3
 1 | 2 | 3
 4 | 5 | 6
 
-<img src="https://picsum.photos/500/50" alt=""/>
+<img src="https://picsum.photos/500/100" alt=""/>
 
 ---
 
