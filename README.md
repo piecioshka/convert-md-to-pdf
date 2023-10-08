@@ -64,10 +64,10 @@ Feel free to check [issues page](/issues/).
 ## Versioning
 
 ```bash
-npm run clear
 npm run lint
 npm run test
 npm run coverage
+npm run clear
 # npm version patch
 npm publish
 git push --tags
