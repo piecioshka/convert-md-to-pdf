@@ -11,45 +11,43 @@ const duplexer = require('duplexer');
 const getFormattedDate = require('./date-helper').getFormattedDate;
 
 function buildOptions() {
-    return {
-        cssPath: null,
-        paperBorder: '0cm',
-        // paperBorder: JSON.stringify({
-        //     top: '2cm',
-        //     right: '2cm',
-        //     bottom: '2cm',
-        //     left: '2cm'
-        // }),
-        // paperOrientation: 'landscape',
-        remarkable: {
-            html: true,
-            breaks: true,
-        },
-        preProcessMd: () => {
-            const currentDateTime = getFormattedDate();
-            const splitter = split();
-            const replacer = through(function (data) {
-                this.queue(
-                    `${data.replace('$$SIGNATURE$$', currentDateTime)}\n`,
-                );
-            });
-            splitter.pipe(replacer);
-            return duplexer(splitter, replacer);
-        },
-    };
+  return {
+    cssPath: null,
+    paperBorder: '0cm',
+    // paperBorder: JSON.stringify({
+    //     top: '2cm',
+    //     right: '2cm',
+    //     bottom: '2cm',
+    //     left: '2cm'
+    // }),
+    // paperOrientation: 'landscape',
+    remarkable: {
+      html: true,
+      breaks: true,
+    },
+    preProcessMd: () => {
+      const currentDateTime = getFormattedDate();
+      const splitter = split();
+      const replacer = through(function (data) {
+        this.queue(`${data.replace('$$SIGNATURE$$', currentDateTime)}\n`);
+      });
+      splitter.pipe(replacer);
+      return duplexer(splitter, replacer);
+    },
+  };
 }
 
 function buildPathname(source, target) {
-    if (target) {
-        return target;
-    }
+  if (target) {
+    return target;
+  }
 
-    const dirname = path.dirname(source);
-    const extname = path.extname(source);
-    const basename = path.basename(source, extname);
-    const currentDateTime = getFormattedDate().replace(/[: ]/g, '-');
+  const dirname = path.dirname(source);
+  const extname = path.extname(source);
+  const basename = path.basename(source, extname);
+  const currentDateTime = getFormattedDate().replace(/[: ]/g, '-');
 
-    return path.join(dirname, `${basename}-${currentDateTime}.pdf`);
+  return path.join(dirname, `${basename}-${currentDateTime}.pdf`);
 }
 
 // -----------------------------------------------------------------------------
@@ -63,26 +61,26 @@ function buildPathname(source, target) {
  * @param {Function} [settings.cb]
  */
 function buildPDF(settings) {
-    assert(typeof settings.source === 'string');
+  assert(typeof settings.source === 'string');
 
-    const source = settings.source;
-    const target = buildPathname(source, settings.target);
-    const cb = settings.cb;
+  const source = settings.source;
+  const target = buildPathname(source, settings.target);
+  const cb = settings.cb;
 
-    const opts = buildOptions();
-    opts.cssPath =
-        settings.theme || path.join(__dirname, '..', 'themes', 'default.css');
+  const opts = buildOptions();
+  opts.cssPath =
+    settings.theme || path.join(__dirname, '..', 'themes', 'default.css');
 
-    markdownpdf(opts)
-        .from(source)
-        .to(target, (err) => {
-            if (err) {
-                throw err;
-            }
-            if (typeof cb === 'function') {
-                cb(target);
-            }
-        });
+  markdownpdf(opts)
+    .from(source)
+    .to(target, (err) => {
+      if (err) {
+        throw err;
+      }
+      if (typeof cb === 'function') {
+        cb(target);
+      }
+    });
 }
 
 module.exports = { buildPDF };

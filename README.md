@@ -25,8 +25,8 @@ npm install -g convert-markdown-to-pdf
 ```javascript
 const { buildPDF } = require('convert-markdown-to-pdf');
 buildPDF({
-    source: '/tmp/source.md',
-    target: '/tmp/document.pdf'
+  source: '/tmp/source.md',
+  target: '/tmp/document.pdf'
 });
 ```
 

@@ -9,14 +9,14 @@ const fs = require('fs');
  * @param {Function} cb
  */
 function listDirectory(pathname, cb) {
-    assert(typeof pathname === 'string');
-    assert(typeof cb === 'function');
-    fs.readdir(pathname, (err, files) => {
-        if (err) {
-            throw err;
-        }
-        files.forEach(cb);
-    });
+  assert(typeof pathname === 'string');
+  assert(typeof cb === 'function');
+  fs.readdir(pathname, (err, files) => {
+    if (err) {
+      throw err;
+    }
+    files.forEach(cb);
+  });
 }
 
 module.exports = { listDirectory };

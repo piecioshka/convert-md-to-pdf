@@ -9,14 +9,14 @@ const { listDirectory } = require('./directory-helper');
 const isPDFFilename = /^(.*)\.pdf$/;
 
 function removeFile(file, cb) {
-    fs.unlink(file, (err) => {
-        if (err) {
-            return void console.error(err);
-        }
-        if (typeof cb === 'function') {
-            cb(file);
-        }
-    });
+  fs.unlink(file, (err) => {
+    if (err) {
+      return void console.error(err);
+    }
+    if (typeof cb === 'function') {
+      cb(file);
+    }
+  });
 }
 
 /**
@@ -24,15 +24,15 @@ function removeFile(file, cb) {
  * @param {string} pathname
  */
 function removeAllPDFFiles(pathname) {
-    assert(typeof pathname === 'string');
-    listDirectory(pathname, (filename) => {
-        if (isPDFFilename.test(filename)) {
-            const file = path.join(pathname, filename);
-            removeFile(file, () => {
-                console.log('Removed', file);
-            });
-        }
-    });
+  assert(typeof pathname === 'string');
+  listDirectory(pathname, (filename) => {
+    if (isPDFFilename.test(filename)) {
+      const file = path.join(pathname, filename);
+      removeFile(file, () => {
+        console.log('Removed', file);
+      });
+    }
+  });
 }
 
 module.exports = { removeAllPDFFiles };
