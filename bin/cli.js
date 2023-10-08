@@ -2,12 +2,16 @@
 
 const path = require('path');
 const yargs = require('yargs')
-  .usage('Usage: $0 --theme [path/to/file.css] path/to/file.md')
-  .example('$0 --theme ~/themes/nord.css document.md', '')
+  .usage('Usage: convert-markdown-to-pdf path/to/file.md [options]')
+  .example('convert-markdown-to-pdf document.md --theme nord', '')
   .help('h')
   .option('t', {
     alias: 'theme',
-    default: path.join(__dirname, '..', 'themes', 'default.css'),
+    default: 'default',
+    description: 'Use on of build-in themes',
+  })
+  .option('p', {
+    alias: 'theme-path',
     description: 'Path to CSS file which will be applied to build a PDF file',
   });
 const argv = yargs.argv;
@@ -15,7 +19,8 @@ const argv = yargs.argv;
 const { buildPDF } = require('../');
 
 const source = argv._[0];
-const theme = String(argv.theme);
+const theme =
+  argv.themePath || path.join(__dirname, '..', 'themes', `${argv.theme}.css`);
 
 if (!source) {
   yargs.showHelp();
