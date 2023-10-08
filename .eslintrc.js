@@ -15,6 +15,8 @@ module.exports = {
   // http://eslint.org/docs/rules/
   rules: {
     indent: ['error', 2],
+    'comma-dangle': ['error', 'always-multiline'],
+    'operator-linebreak': ['error', 'after'],
     'no-magic-numbers': 'off',
     'no-process-exit': 'off',
     'no-implicit-globals': 'off',

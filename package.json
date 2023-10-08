@@ -9,11 +9,8 @@
     "url": "https://piecioshka.pl/"
   },
   "scripts": {
-    "clear": "rm -rf dist/ coverage/ mock/*.pdf",
-    "clear:all": "rm -rf node_modules/ && npm run clear",
-    "pretest": "npm run clear",
-    "test": "npm run test:unit",
-    "test:unit": "jasmine src/**/*.spec.js",
+    "clear": "rm -rf dist/ coverage/ .nyc_output/ mock/*.pdf",
+    "test": "jasmine src/**/*.spec.js",
     "coverage": "nyc npm run test && nyc report --reporter=html",
     "lint": "eslint ."
   },

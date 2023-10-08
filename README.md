@@ -12,7 +12,7 @@
 
 * :white_check_mark: Build PDF file form Markdown file
 * :white_check_mark: In default generate PDF file in the same directory as Markdown file
-* :white_check_mark: You can set custom name of target PDF file
+* :white_check_mark: Can set custom name of target PDF file
 
 ## Install
 
@@ -43,12 +43,6 @@ convert-markdown-to-pdf /tmp/source.md
 ```bash
 convert-markdown-to-pdf /tmp/source.md -t ~/projects/convert-markdown-to-pdf-themes/dark.css
 convert-markdown-to-pdf /tmp/source.md --theme ~/projects/convert-markdown-to-pdf-themes/orange.css
-```
-
-### :arrow_right: Use case: Custom theme
-
-```bash
-TODO
 ```
 
 ## Unit tests
