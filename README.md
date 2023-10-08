@@ -11,8 +11,8 @@
 ## Features
 
 * :white_check_mark: Build PDF file form Markdown file
-* :white_check_mark: In default generate PDF file in the same directory as Markdown file
-* :white_check_mark: Can set custom name of target PDF file
+* :white_check_mark: Generate PDF file in the same directory as Markdown file
+* :white_check_mark: Use one of built-in themes or custom pass custom path to theme file
 
 ## Install
 
