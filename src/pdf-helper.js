@@ -57,7 +57,7 @@ function buildPathname(source, target) {
  * @param {Object} settings
  * @param {string} settings.source
  * @param {string} [settings.target]
- * @param {string} [settings.theme='default']
+ * @param {string} [settings.theme='../themes/default.css']
  * @param {Function} [settings.cb]
  */
 function buildPDF(settings) {
