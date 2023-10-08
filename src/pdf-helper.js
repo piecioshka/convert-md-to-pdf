@@ -66,10 +66,10 @@ function buildPDF(settings) {
   const source = settings.source;
   const target = buildPathname(source, settings.target);
   const cb = settings.cb;
+  const theme = settings.theme;
 
   const opts = buildOptions();
-  opts.cssPath =
-    settings.theme || path.join(__dirname, '..', 'themes', 'default.css');
+  opts.cssPath = theme || path.join(__dirname, '..', 'themes', 'default.css');
 
   markdownpdf(opts)
     .from(source)
