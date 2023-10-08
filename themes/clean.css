@@ -1,0 +1,44 @@
+@import "./default.css";
+
+body {
+    color: #000;
+    font-family: "Open Sans", serif;
+    font-size: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    background-color: #000;
+    color: #fff;
+    padding: 0 3px 3px 3px;
+    font-size: 12px;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    color: #000;
+}
+
+h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em {
+    font-style: normal;
+    font-weight: 200;
+}
+
+ul li ul {
+    margin: 6px 0;
+}
+
+blockquote {
+    background: #d1d1d1;
+    border: none;
+    border-top: 3px solid #272822;
+    border-bottom: 3px solid #272822;
+    padding: 0;
+    margin: 50px 0 20px 0;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 0;
+}

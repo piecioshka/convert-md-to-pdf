@@ -1,0 +1,27 @@
+@import "./default.css";
+
+body {
+  color: #2E3440;
+  font-family: "Open Sans", serif;
+  padding: 30px 57px 57px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background-color: #4C566A;
+  color: #ECEFF4;
+  padding: 0 5px 3px 5px;
+}
+
+h1 {
+  background-color: #4C566A;
+  color: #fff;
+}
+
+h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em {
+  font-style: normal;
+  font-weight: 200;
+}
+
+ul li ul {
+  margin: 6px 0;
+}
