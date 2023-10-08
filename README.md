@@ -56,22 +56,22 @@ convert-markdown-to-pdf /tmp/source.md -p ~/custom-theme.css
 convert-markdown-to-pdf /tmp/source.md --theme-path ~/custom-theme.css
 ```
 
-## Unit tests
-
-```bash
-npm test
-```
-
-## Code coverage
-
-```bash
-npm run coverage
-```
-
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />
 Feel free to check [issues page](/issues/).
+
+## Versioning
+
+```bash
+npm run clear
+npm run lint
+npm run test
+npm run coverage
+# npm version patch
+npm publish
+git push --tags
+```
 
 ## License
 
