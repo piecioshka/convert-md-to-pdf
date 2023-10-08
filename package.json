@@ -33,6 +33,9 @@
     "type": "git",
     "url": "git@github.com:piecioshka/convert-markdown-to-pdf.git"
   },
+  "engines" : {
+    "node" : ">=14.20.1"
+  },
   "files": [
     "bin",
     "src",
