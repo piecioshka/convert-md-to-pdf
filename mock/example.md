@@ -39,4 +39,4 @@ H1 | H2 | H3
 
 ---
 
-Data wygenerowania: $$SIGNATURE$$
+Generated on: $$SIGNATURE$$
