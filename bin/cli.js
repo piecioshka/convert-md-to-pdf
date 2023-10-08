@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
+const path = require('path');
 const yargs = require('yargs')
   .usage('Usage: $0 --theme [path/to/file.css] path/to/file.md')
-  .example('$0 --theme ~/themes/nordtheme.css meetup.md', '')
+  .example('$0 --theme ~/themes/nord.css document.md', '')
   .help('h')
   .option('t', {
     alias: 'theme',
-    default: 'default',
+    default: path.join(__dirname, '..', 'themes', 'default.css'),
     description: 'Path to CSS file which will be applied to build a PDF file',
   });
 const argv = yargs.argv;
