@@ -9,7 +9,7 @@
     "url": "https://piecioshka.pl/"
   },
   "scripts": {
-    "clear": "rm -rf dist/ coverage/ .nyc_output/ mock/*.pdf",
+    "clear": "rm -rf tmp/ dist/ coverage/ .nyc_output/ mock/*.pdf",
     "test": "jasmine src/**/*.spec.js --reporter=jasmine-console-reporter",
     "coverage": "nyc npm run test && nyc report --reporter=html",
     "lint": "eslint ."

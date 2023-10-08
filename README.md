@@ -89,6 +89,8 @@ npm run lint
 npm run test
 npm run coverage
 npm run clear
+# npm version major
+# npm version minor
 # npm version patch
 npm publish
 git push --tags
