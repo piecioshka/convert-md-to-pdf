@@ -38,11 +38,21 @@ buildPDF({
 convert-markdown-to-pdf /tmp/source.md
 ```
 
-### :arrow_right: Use case: Changing theme
+### :arrow_right: Use case: Change theme (built-in)
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md -t ~/projects/convert-markdown-to-pdf-themes/dark.css
-convert-markdown-to-pdf /tmp/source.md --theme ~/projects/convert-markdown-to-pdf-themes/orange.css
+convert-markdown-to-pdf /tmp/source.md -t clean
+convert-markdown-to-pdf /tmp/source.md -t dark
+convert-markdown-to-pdf /tmp/source.md -t default
+convert-markdown-to-pdf /tmp/source.md -t nord
+convert-markdown-to-pdf /tmp/source.md -t orange
+```
+
+### :arrow_right: Use case: Custom theme
+
+```bash
+convert-markdown-to-pdf /tmp/source.md -p ~/custom-theme.css
+convert-markdown-to-pdf /tmp/source.md --theme-path ~/custom-theme.css
 ```
 
 ## Unit tests
