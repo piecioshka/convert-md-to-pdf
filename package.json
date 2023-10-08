@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clear": "rm -rf dist/ coverage/ .nyc_output/ mock/*.pdf",
-    "test": "jasmine src/**/*.spec.js",
+    "test": "jasmine src/**/*.spec.js --reporter=jasmine-console-reporter",
     "coverage": "nyc npm run test && nyc report --reporter=html",
     "lint": "eslint ."
   },
@@ -26,6 +26,7 @@
     "eslint": "^8.51.0",
     "eslint-config-piecioshka": "^2.2.4",
     "jasmine": "^5.1.0",
+    "jasmine-console-reporter": "^3.1.0",
     "nyc": "^15.1.0"
   },
   "repository": {
