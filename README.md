@@ -3,7 +3,6 @@
 [![node version](https://img.shields.io/node/v/convert-markdown-to-pdf.svg)](https://www.npmjs.com/package/convert-markdown-to-pdf)
 [![npm version](https://badge.fury.io/js/convert-markdown-to-pdf.svg)](https://badge.fury.io/js/convert-markdown-to-pdf)
 [![downloads count](https://img.shields.io/npm/dt/convert-markdown-to-pdf.svg)](https://www.npmjs.com/package/convert-markdown-to-pdf)
-[![travis-ci](https://api.travis-ci.com/piecioshka/convert-markdown-to-pdf.svg?branch=master)](https://app.travis-ci.com/github/piecioshka/convert-markdown-to-pdf)
 
 :hammer: Convert Markdown file to PDF.
 
