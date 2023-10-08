@@ -77,6 +77,21 @@ convert-markdown-to-pdf /tmp/source.md -f agreement.pdf
 convert-markdown-to-pdf /tmp/source.md --filename agreement.pdf
 ```
 
+### :arrow_right: Use case: Display the date of generation in the output file
+
+During the conversion, the following phrase will be replaced with date & time.
+For example:
+
+```md
+Generated on: $$SIGNATURE$$
+```
+
+It will be replaced with:
+
+```md
+Generated on: 2023-09-08 23:16:35
+```
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />
@@ -89,9 +104,7 @@ npm run lint
 npm run test
 npm run coverage
 npm run clear
-# npm version major
-# npm version minor
-# npm version patch
+# npm version major / minor / patch
 npm publish
 git push --tags
 ```
