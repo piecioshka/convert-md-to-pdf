@@ -48,8 +48,8 @@ function buildOptions() {
  * @param {Function} [options.cb]
  */
 function buildPDF(options) {
-  assert(typeof options.source === 'string', 'options.source is not defined');
-  assert(typeof options.target === 'string', 'options.target is not defined');
+  assert(typeof options.source === 'string', 'options.source is not a string');
+  assert(typeof options.target === 'string', 'options.target is not a string');
 
   const source = options.source;
   const target = options.target;

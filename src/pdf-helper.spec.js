@@ -24,7 +24,7 @@ describe('PDFHelper', () => {
     });
   });
 
-  it('should generate with defined target (use default theme)', (done) => {
+  it('should generate file with defined target (use default theme)', (done) => {
     buildPDF({
       source: path.join(root, 'mock', 'example.md'),
       target: path.join(root, 'dist', 'example-default-theme.pdf'),
@@ -36,7 +36,7 @@ describe('PDFHelper', () => {
   });
 
   ['clean', 'dark', 'nord', 'orange'].forEach((theme) => {
-    it(`should generate with defined target and theme=${theme}`, (done) => {
+    it(`should generate file with defined target and theme=${theme}`, (done) => {
       buildPDF({
         source: path.join(root, 'mock', 'example.md'),
         target: path.join(root, 'dist', `example-${theme}-theme.pdf`),
