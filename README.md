@@ -14,6 +14,7 @@
 * :white_check_mark: Generate a PDF file in the same directory as the Markdown file
 * :white_check_mark: Use one of the built-in themes
 * :white_check_mark: Support custom path to a theme file
+* :white_check_mark: Support set output directory and output file name
 
 ## Usage
 
@@ -39,6 +40,12 @@ npm install -g convert-markdown-to-pdf
 convert-markdown-to-pdf /tmp/source.md
 ```
 
+### :arrow_right: Use case: Display list of built-in themes
+
+```bash
+convert-markdown-to-pdf -l
+```
+
 ### :arrow_right: Use case: Change theme (built-in)
 
 ```bash
@@ -54,6 +61,20 @@ convert-markdown-to-pdf /tmp/source.md -t orange
 ```bash
 convert-markdown-to-pdf /tmp/source.md -p ~/custom-theme.css
 convert-markdown-to-pdf /tmp/source.md --theme-path ~/custom-theme.css
+```
+
+### :arrow_right: Use case: Set directory for output file
+
+```bash
+convert-markdown-to-pdf /tmp/source.md -d my-files/
+convert-markdown-to-pdf /tmp/source.md --directory my-files/
+```
+
+### :arrow_right: Use case: Set name of output file
+
+```bash
+convert-markdown-to-pdf /tmp/source.md -f agreement.pdf
+convert-markdown-to-pdf /tmp/source.md --filename agreement.pdf
 ```
 
 ## 🤝 Contributing

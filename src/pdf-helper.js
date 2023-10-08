@@ -8,7 +8,7 @@ const through = require('through');
 const split = require('split');
 const duplexer = require('duplexer');
 
-const getFormattedDate = require('./date-helper').getFormattedDate;
+const { getFormattedDate } = require('./date-helper');
 
 function buildOptions() {
   return {
@@ -37,36 +37,24 @@ function buildOptions() {
   };
 }
 
-function buildPathname(source, target) {
-  if (target) {
-    return target;
-  }
-
-  const dirname = path.dirname(source);
-  const extname = path.extname(source);
-  const basename = path.basename(source, extname);
-  const currentDateTime = getFormattedDate().replace(/[: ]/g, '-');
-
-  return path.join(dirname, `${basename}-${currentDateTime}.pdf`);
-}
-
 // -----------------------------------------------------------------------------
 
 /**
  * @access public
- * @param {Object} settings
- * @param {string} settings.source
- * @param {string} [settings.target]
- * @param {string} [settings.theme='../themes/default.css']
- * @param {Function} [settings.cb]
+ * @param {Object} options
+ * @param {string} options.source
+ * @param {string} options.target
+ * @param {string} [options.theme='../themes/default.css']
+ * @param {Function} [options.cb]
  */
-function buildPDF(settings) {
-  assert(typeof settings.source === 'string');
+function buildPDF(options) {
+  assert(typeof options.source === 'string', 'options.source is not defined');
+  assert(typeof options.target === 'string', 'options.target is not defined');
 
-  const source = settings.source;
-  const target = buildPathname(source, settings.target);
-  const cb = settings.cb;
-  const theme = settings.theme;
+  const source = options.source;
+  const target = options.target;
+  const cb = options.cb;
+  const theme = options.theme;
 
   const opts = buildOptions();
   opts.cssPath = theme || path.join(__dirname, '..', 'themes', 'default.css');

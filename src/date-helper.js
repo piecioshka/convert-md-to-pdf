@@ -1,3 +1,5 @@
+'use strict';
+
 const toTwoZeros = (value) => String(value).padStart(2, '0');
 
 function getFormattedDate(d = new Date()) {
