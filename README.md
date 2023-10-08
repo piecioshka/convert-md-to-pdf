@@ -22,7 +22,7 @@ npm install -g convert-markdown-to-pdf
 
 ## Usage
 
-```javascript
+```js
 const { buildPDF } = require('convert-markdown-to-pdf');
 buildPDF({
   source: '/tmp/source.md',
@@ -32,13 +32,13 @@ buildPDF({
 
 ## CLI
 
-### :arrow_right: Use case: Normal
+### :arrow_right: Use case: Regular usage
 
 ```bash
 convert-markdown-to-pdf /tmp/source.md
 ```
 
-### :arrow_right: Use case: Change theme
+### :arrow_right: Use case: Changing theme
 
 ```bash
 convert-markdown-to-pdf /tmp/source.md -t ~/projects/convert-markdown-to-pdf-themes/dark.css
@@ -64,4 +64,4 @@ Feel free to check [issues page](/issues/).
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2018
+[The MIT License](http://piecioshka.mit-license.org) @ 2018-2023
