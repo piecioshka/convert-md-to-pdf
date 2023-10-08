@@ -12,4 +12,4 @@
 
 ---
 
-$$SIGNATURE$$
+Data wygenerowania: $$SIGNATURE$$

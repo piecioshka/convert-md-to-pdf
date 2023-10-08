@@ -8,7 +8,7 @@ const through = require('through');
 const split = require('split');
 const duplexer = require('duplexer');
 
-const moment = require('moment');
+const getFormattedDate = require('./date-helper').getFormattedDate;
 
 function buildOptions() {
     return {
@@ -26,12 +26,12 @@ function buildOptions() {
             breaks: true,
         },
         preProcessMd: () => {
-            const currentDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
-            const signature = `Data wygenerowania: ${currentDateTime}`;
-
+            const currentDateTime = getFormattedDate();
             const splitter = split();
             const replacer = through(function (data) {
-                this.queue(`${data.replace('$$SIGNATURE$$', signature)}\n`);
+                this.queue(
+                    `${data.replace('$$SIGNATURE$$', currentDateTime)}\n`,
+                );
             });
             splitter.pipe(replacer);
             return duplexer(splitter, replacer);
@@ -47,7 +47,7 @@ function buildPathname(source, target) {
     const dirname = path.dirname(source);
     const extname = path.extname(source);
     const basename = path.basename(source, extname);
-    const currentDateTime = moment().format('YYYY-MM-DD-HH-mm-ss');
+    const currentDateTime = getFormattedDate().replace(/[: ]/g, '-');
 
     return path.join(dirname, `${basename}-${currentDateTime}.pdf`);
 }
