@@ -12,13 +12,8 @@
 
 * :white_check_mark: Build PDF file form Markdown file
 * :white_check_mark: Generate PDF file in the same directory as Markdown file
-* :white_check_mark: Use one of built-in themes or custom pass custom path to theme file
-
-## Install
-
-```bash
-npm install -g convert-markdown-to-pdf
-```
+* :white_check_mark: Use one of built-in themes
+* :white_check_mark: Support custom path to theme file
 
 ## Usage
 
@@ -31,6 +26,12 @@ buildPDF({
 ```
 
 ## CLI
+
+### Installation
+
+```bash
+npm install -g convert-markdown-to-pdf
+```
 
 ### :arrow_right: Use case: Regular usage
 
