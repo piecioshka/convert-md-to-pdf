@@ -45,6 +45,7 @@
     "README.md"
   ],
   "keywords": [
+    "cli",
     "builder",
     "converter",
     "markdown",
