@@ -111,4 +111,4 @@ git push --tags
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2018-2023
+[The MIT License](http://piecioshka.mit-license.org) @ 2018-2024
