@@ -1,8 +1,8 @@
-# convert-markdown-to-pdf
+# convert-md-to-pdf
 
-[![node version](https://img.shields.io/node/v/convert-markdown-to-pdf.svg)](https://www.npmjs.com/package/convert-markdown-to-pdf)
-[![npm version](https://badge.fury.io/js/convert-markdown-to-pdf.svg)](https://badge.fury.io/js/convert-markdown-to-pdf)
-[![downloads count](https://img.shields.io/npm/dt/convert-markdown-to-pdf.svg)](https://www.npmjs.com/package/convert-markdown-to-pdf)
+[![node version](https://img.shields.io/node/v/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
+[![npm version](https://badge.fury.io/js/convert-md-to-pdf.svg)](https://badge.fury.io/js/convert-md-to-pdf)
+[![downloads count](https://img.shields.io/npm/dt/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
 
 :hammer: Convert Markdown file to PDF.
 
@@ -19,7 +19,7 @@
 ## Usage
 
 ```js
-const { buildPDF } = require('convert-markdown-to-pdf');
+const { buildPDF } = require('convert-md-to-pdf');
 buildPDF({
   source: '/tmp/source.md',
   target: '/tmp/document.pdf'
@@ -31,50 +31,50 @@ buildPDF({
 ### Installation
 
 ```bash
-npm install -g convert-markdown-to-pdf
+npm install -g convert-md-to-pdf
 ```
 
 ### :arrow_right: Use case: Regular usage
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md
+convert-md-to-pdf /tmp/source.md
 ```
 
 ### :arrow_right: Use case: Display list of built-in themes
 
 ```bash
-convert-markdown-to-pdf -l
+convert-md-to-pdf -l
 ```
 
 ### :arrow_right: Use case: Change theme (built-in)
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md -t clean
-convert-markdown-to-pdf /tmp/source.md -t dark
-convert-markdown-to-pdf /tmp/source.md -t default
-convert-markdown-to-pdf /tmp/source.md -t nord
-convert-markdown-to-pdf /tmp/source.md -t orange
+convert-md-to-pdf /tmp/source.md -t clean
+convert-md-to-pdf /tmp/source.md -t dark
+convert-md-to-pdf /tmp/source.md -t default
+convert-md-to-pdf /tmp/source.md -t nord
+convert-md-to-pdf /tmp/source.md -t orange
 ```
 
 ### :arrow_right: Use case: Custom theme
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md -p ~/custom-theme.css
-convert-markdown-to-pdf /tmp/source.md --theme-path ~/custom-theme.css
+convert-md-to-pdf /tmp/source.md -p ~/custom-theme.css
+convert-md-to-pdf /tmp/source.md --theme-path ~/custom-theme.css
 ```
 
 ### :arrow_right: Use case: Set directory for output file
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md -d my-files/
-convert-markdown-to-pdf /tmp/source.md --directory my-files/
+convert-md-to-pdf /tmp/source.md -d my-files/
+convert-md-to-pdf /tmp/source.md --directory my-files/
 ```
 
 ### :arrow_right: Use case: Set name of output file
 
 ```bash
-convert-markdown-to-pdf /tmp/source.md -f agreement.pdf
-convert-markdown-to-pdf /tmp/source.md --filename agreement.pdf
+convert-md-to-pdf /tmp/source.md -f agreement.pdf
+convert-md-to-pdf /tmp/source.md --filename agreement.pdf
 ```
 
 ### :arrow_right: Use case: Display the date of generation in the output file

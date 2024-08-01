@@ -2,11 +2,11 @@
 
 const path = require('path');
 const yargs = require('yargs')
-  .usage('Usage: convert-markdown-to-pdf path/to/file.md [options]')
-  .example('convert-markdown-to-pdf -l', '')
-  .example('convert-markdown-to-pdf doc.md -d my-files/ -f agreement.pdf', '')
-  .example('convert-markdown-to-pdf doc.md -t nord', '')
-  .example('convert-markdown-to-pdf doc.md -p ~/customs.css', '')
+  .usage('Usage: convert-md-to-pdf path/to/file.md [options]')
+  .example('convert-md-to-pdf -l', '')
+  .example('convert-md-to-pdf doc.md -d my-files/ -f agreement.pdf', '')
+  .example('convert-md-to-pdf doc.md -t nord', '')
+  .example('convert-md-to-pdf doc.md -p ~/customs.css', '')
   .help('h')
   .option('t', {
     alias: 'theme',
