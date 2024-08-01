@@ -26,13 +26,13 @@ buildPDF({
 });
 ```
 
-## CLI
-
-### Installation
+## Installation
 
 ```bash
 npm install -g convert-md-to-pdf
 ```
+
+## CLI
 
 ### :arrow_right: Use case: Regular usage
 
@@ -96,18 +96,6 @@ Generated on: 2023-09-08 23:16:35
 
 Contributions, issues and feature requests are welcome!<br />
 Feel free to check [issues page](/issues/).
-
-## Versioning
-
-```bash
-npm run lint
-npm run test
-npm run coverage
-npm run clear
-# npm version major / minor / patch
-npm publish
-git push --tags
-```
 
 ## License
 
