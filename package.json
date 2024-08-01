@@ -23,11 +23,11 @@
   },
   "devDependencies": {
     "@types/jasmine": "^5.1.0",
-    "eslint": "^8.51.0",
+    "eslint": "^9.8.0",
     "eslint-config-piecioshka": "^2.2.4",
     "jasmine": "^5.1.0",
     "jasmine-console-reporter": "^3.1.0",
-    "nyc": "^15.1.0"
+    "nyc": "^17.0.0"
   },
   "repository": {
     "type": "git",
