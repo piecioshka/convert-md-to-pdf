@@ -13,13 +13,12 @@ const { getFormattedDate } = require('./date-helper');
 function buildOptions() {
   return {
     cssPath: null,
-    paperBorder: '0cm',
-    // paperBorder: JSON.stringify({
-    //     top: '2cm',
-    //     right: '2cm',
-    //     bottom: '2cm',
-    //     left: '2cm'
-    // }),
+    paperBorder: JSON.stringify({
+        top: '2cm',
+        right: '2cm',
+        bottom: '2cm',
+        left: '2cm'
+    }),
     paperOrientation: 'portrait',
     remarkable: {
       html: true,
@@ -45,6 +44,7 @@ function buildOptions() {
  * @param {string} options.source
  * @param {string} options.target
  * @param {string} [options.mode]
+ * @param {string} [options.border]
  * @param {string} [options.theme='../themes/default.css']
  * @param {Function} [options.cb]
  */
@@ -57,10 +57,17 @@ function buildPDF(options) {
   const cb = options.cb;
   const theme = options.theme;
   const mode = options.mode;
+  const border = options.border;
 
   const opts = buildOptions();
   opts.cssPath = theme || path.join(__dirname, '..', 'themes', 'default.css');
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
+
+  if (border) {
+    const [top, right, bottom, left] = border.split(',').map((value) => value.trim());
+    const paperBorder = JSON.stringify({ top, right, bottom, left })
+    opts.paperBorder = paperBorder;
+  }
 
   markdownpdf(opts)
     .from(source)

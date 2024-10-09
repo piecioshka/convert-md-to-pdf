@@ -9,7 +9,7 @@ html, body {
 body {
   font-family: "Avenir Next", serif;
   font-size: 12px;
-  padding: 57px; /* 2cm */
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

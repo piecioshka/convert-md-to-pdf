@@ -17,6 +17,7 @@
 * ✅ Support custom path to a theme file
 * ✅ Support set output directory and output file name
 * ✅ Support paper orientation (portrait, landscape)
+* ✅ Support paper border (default: 2cm for all sides)
 
 ## Usage
 
@@ -84,6 +85,14 @@ convert-md-to-pdf /tmp/source.md --output agreement.pdf
 ```bash
 convert-md-to-pdf /tmp/source.md -m landscape
 convert-md-to-pdf /tmp/source.md --mode landscape
+```
+
+### ➡️ Use case: Change paper border _(default: 2cm for all sides)_
+
+```bash
+# order of values: top, right, bottom, left
+convert-md-to-pdf /tmp/source.md -b 1cm,1cm,1cm,1cm
+convert-md-to-pdf /tmp/source.md --border 2cm,3cm,2cm,3cm
 ```
 
 ### ➡️ Use case: Display the date of generation in the output file

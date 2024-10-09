@@ -32,6 +32,10 @@ const yargs = require('yargs')
   .option('m', {
     alias: 'mode',
     description: 'Paper orientation, either portrait or landscape',
+  })
+  .option('b', {
+    alias: 'border',
+    description: 'Spaces around the content, default = 2cm,2cm,2cm,2cm (top, right, bottom, left)',
   });
 const argv = yargs.argv;
 
@@ -62,12 +66,14 @@ const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme = argv.themePath || path.join(themesDirectory, `${argv.theme}.css`);
 const mode = ['portrait', 'landscape'].includes(argv.mode) ? argv.mode : 'portrait';
+const border = argv.border || '2cm,2cm,2cm,2cm';
 
 buildPDF({
   source,
   target,
   theme,
   mode,
+  border,
   cb(file) {
     console.log('Created:', file);
   },

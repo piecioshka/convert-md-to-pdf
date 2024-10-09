@@ -1,9 +1,5 @@
 @import "./default.css";
 
-body {
-  padding: 30px 57px 57px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   background: rgb(255, 123, 71);
   color: #fff;
