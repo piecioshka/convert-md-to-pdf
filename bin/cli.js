@@ -17,6 +17,10 @@ const yargs = require('yargs')
     alias: 'list',
     description: 'Display list of built-in themes',
   })
+  .option('p', {
+    alias: 'theme-path',
+    description: 'Path to CSS file which will be applied to build a PDF file',
+  })
   .option('d', {
     alias: 'destination',
     description: 'Directory for output file',
@@ -25,9 +29,9 @@ const yargs = require('yargs')
     alias: 'output',
     description: 'Name of output file',
   })
-  .option('p', {
-    alias: 'theme-path',
-    description: 'Path to CSS file which will be applied to build a PDF file',
+  .option('m', {
+    alias: 'mode',
+    description: 'Paper orientation, either portrait or landscape',
   });
 const argv = yargs.argv;
 
@@ -57,11 +61,13 @@ const destination = argv.destination
 const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme = argv.themePath || path.join(themesDirectory, `${argv.theme}.css`);
+const mode = ['portrait', 'landscape'].includes(argv.mode) ? argv.mode : 'portrait';
 
 buildPDF({
   source,
   target,
   theme,
+  mode,
   cb(file) {
     console.log('Created:', file);
   },

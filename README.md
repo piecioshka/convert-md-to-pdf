@@ -16,6 +16,7 @@
 * ✅ Use one of the built-in themes
 * ✅ Support custom path to a theme file
 * ✅ Support set output directory and output file name
+* ✅ Support paper orientation (portrait, landscape)
 
 ## Usage
 
@@ -76,6 +77,13 @@ convert-md-to-pdf /tmp/source.md --directory my-files/
 ```bash
 convert-md-to-pdf /tmp/source.md -o agreement.pdf
 convert-md-to-pdf /tmp/source.md --output agreement.pdf
+```
+
+### ➡️ Use case: Change paper orientation _(default: portrait)_
+
+```bash
+convert-md-to-pdf /tmp/source.md -m landscape
+convert-md-to-pdf /tmp/source.md --mode landscape
 ```
 
 ### ➡️ Use case: Display the date of generation in the output file

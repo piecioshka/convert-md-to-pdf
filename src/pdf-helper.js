@@ -20,7 +20,7 @@ function buildOptions() {
     //     bottom: '2cm',
     //     left: '2cm'
     // }),
-    // paperOrientation: 'landscape',
+    paperOrientation: 'portrait',
     remarkable: {
       html: true,
       breaks: true,
@@ -44,6 +44,7 @@ function buildOptions() {
  * @param {Object} options
  * @param {string} options.source
  * @param {string} options.target
+ * @param {string} [options.mode]
  * @param {string} [options.theme='../themes/default.css']
  * @param {Function} [options.cb]
  */
@@ -55,9 +56,11 @@ function buildPDF(options) {
   const target = options.target;
   const cb = options.cb;
   const theme = options.theme;
+  const mode = options.mode;
 
   const opts = buildOptions();
   opts.cssPath = theme || path.join(__dirname, '..', 'themes', 'default.css');
+  opts.paperOrientation = mode ? mode : opts.paperOrientation;
 
   markdownpdf(opts)
     .from(source)
