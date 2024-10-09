@@ -4,7 +4,7 @@ const path = require('path');
 const yargs = require('yargs')
   .usage('Usage: convert-md-to-pdf path/to/file.md [options]')
   .example('convert-md-to-pdf -l', '')
-  .example('convert-md-to-pdf doc.md -d my-files/ -f agreement.pdf', '')
+  .example('convert-md-to-pdf doc.md -d my-files/ -o agreement.pdf', '')
   .example('convert-md-to-pdf doc.md -t nord', '')
   .example('convert-md-to-pdf doc.md -p ~/customs.css', '')
   .help('h')
@@ -21,8 +21,8 @@ const yargs = require('yargs')
     alias: 'destination',
     description: 'Directory for output file',
   })
-  .option('f', {
-    alias: 'filename',
+  .option('o', {
+    alias: 'output',
     description: 'Name of output file',
   })
   .option('p', {
@@ -54,7 +54,7 @@ if (!source) {
 const destination = argv.destination
   ? path.resolve(argv.destination)
   : path.join(path.dirname(source));
-const filename = argv.filename ? argv.filename : buildOutputFilename(source);
+const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme = argv.themePath || path.join(themesDirectory, `${argv.theme}.css`);
 
