@@ -42,7 +42,8 @@
     "themes",
     "index.js",
     "package.json",
-    "README.md"
+    "README.md",
+    "!**/*.spec.*"
   ],
   "keywords": [
     "cli",
