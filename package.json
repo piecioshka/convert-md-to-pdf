@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:piecioshka/convert-md-to-pdf.git"
+    "url": "git+ssh://git@github.com/piecioshka/convert-md-to-pdf.git"
   },
   "engines": {
     "node": ">=14.20.1"
@@ -52,5 +52,7 @@
     "pdf"
   ],
   "main": "./index.js",
-  "bin": "./bin/cli.js"
+  "bin": {
+    "convert-md-to-pdf": "bin/cli.js"
+  }
 }
