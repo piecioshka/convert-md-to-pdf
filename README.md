@@ -3,7 +3,7 @@
 [![node version](https://img.shields.io/node/v/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
 [![npm version](https://badge.fury.io/js/convert-md-to-pdf.svg)](https://badge.fury.io/js/convert-md-to-pdf)
 [![downloads count](https://img.shields.io/npm/dt/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
-[![license](https://img.shields.io/npm/l/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
+[![license](https://img.shields.io/npm/l/convert-md-to-pdf.svg)](https://piecioshka.mit-license.org)
 
 🔨 Convert Markdown file to PDF file
 
