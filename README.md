@@ -3,6 +3,7 @@
 [![node version](https://img.shields.io/node/v/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
 [![npm version](https://badge.fury.io/js/convert-md-to-pdf.svg)](https://badge.fury.io/js/convert-md-to-pdf)
 [![downloads count](https://img.shields.io/npm/dt/convert-md-to-pdf.svg)](https://www.npmjs.com/package/convert-md-to-pdf)
+[![size](https://packagephobia.com/badge?p=convert-md-to-pdf)](https://packagephobia.com/result?p=convert-md-to-pdf)
 [![license](https://img.shields.io/npm/l/convert-md-to-pdf.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/convert-md-to-pdf/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/convert-md-to-pdf/actions/workflows/testing.yml)
 
