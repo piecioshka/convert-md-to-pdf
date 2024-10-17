@@ -1,7 +1,7 @@
 {
   "name": "convert-md-to-pdf",
   "description": "🔨 Convert Markdown file to PDF",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "license": "MIT",
   "author": {
     "name": "Piotr Kowalski",
