@@ -26,6 +26,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-console': 'off',
     strict: 'off',
+    'max-statements': 'off',
   },
 
   // List of global variables.

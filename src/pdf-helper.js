@@ -14,10 +14,10 @@ function buildOptions() {
   return {
     cssPath: null,
     paperBorder: JSON.stringify({
-        top: '2cm',
-        right: '2cm',
-        bottom: '2cm',
-        left: '2cm'
+      top: '2cm',
+      right: '2cm',
+      bottom: '2cm',
+      left: '2cm',
     }),
     paperOrientation: 'portrait',
     remarkable: {
@@ -64,8 +64,10 @@ function buildPDF(options) {
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
 
   if (border) {
-    const [top, right, bottom, left] = border.split(',').map((value) => value.trim());
-    const paperBorder = JSON.stringify({ top, right, bottom, left })
+    const [top, right, bottom, left] = border
+      .split(',')
+      .map((value) => value.trim());
+    const paperBorder = JSON.stringify({ top, right, bottom, left });
     opts.paperBorder = paperBorder;
   }
 
