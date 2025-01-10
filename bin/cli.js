@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const yargs = require('yargs')
-  .usage('Usage: convert-md-to-pdf path/to/file.md [options]')
+const yargs = require('yargs');
+const { buildPDF } = require('../src/pdf-helper');
+const { displaySupportedThemes } = require('../src/themes-helper');
+const { buildOutputFilename } = require('../src/file-helper');
+const { DEFAULT_THEME } = require('../src/config');
+
+yargs
+  .usage('Usage: convert-md-to-pdf <path/to/file.md> [options]')
   .example('convert-md-to-pdf -l', '')
   .example('convert-md-to-pdf doc.md -d my-files/ -o agreement.pdf', '')
   .example('convert-md-to-pdf doc.md -t nord', '')
@@ -10,11 +16,11 @@ const yargs = require('yargs')
   .help('h')
   .option('t', {
     alias: 'theme',
-    default: 'default',
+    default: DEFAULT_THEME,
     description: 'Use on of built-in themes',
   })
   .option('l', {
-    alias: 'list',
+    alias: 'list-themes',
     description: 'Display list of built-in themes',
   })
   .option('p', {
@@ -35,19 +41,13 @@ const yargs = require('yargs')
   })
   .option('b', {
     alias: 'border',
-    description: 'Spaces around the content, default = 2cm,2cm,2cm,2cm (top, right, bottom, left)',
+    description:
+      'Spaces around the content, default = 2cm,2cm,2cm,2cm (top, right, bottom, left)',
   });
+
 const argv = yargs.argv;
 
-const { buildPDF } = require('../src/pdf-helper');
-const { displaySupportedThemes } = require('../src/themes-helper');
-const { buildOutputFilename } = require('../src/file-helper');
-
-const themesDirectory = path.join(__dirname, '..', 'themes');
-
-const displayList = argv.list;
-
-if (displayList) {
+if (argv.list) {
   displaySupportedThemes();
   process.exit(0);
 }
@@ -64,8 +64,11 @@ const destination = argv.destination
   : path.join(path.dirname(source));
 const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
-const theme = argv.themePath || path.join(themesDirectory, `${argv.theme}.css`);
-const mode = ['portrait', 'landscape'].includes(argv.mode) ? argv.mode : 'portrait';
+const theme =
+  argv.themePath || path.join(__dirname, '..', 'themes', `${argv.theme}.css`);
+const mode = ['portrait', 'landscape'].includes(argv.mode)
+  ? argv.mode
+  : 'portrait';
 const border = argv.border || '2cm,2cm,2cm,2cm';
 
 buildPDF({

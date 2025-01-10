@@ -9,6 +9,7 @@ const split = require('split');
 const duplexer = require('duplexer');
 
 const { getFormattedDate } = require('./date-helper');
+const { DEFAULT_THEME } = require('./config');
 
 function buildOptions() {
   return {
@@ -45,7 +46,7 @@ function buildOptions() {
  * @param {string} options.target
  * @param {string} [options.mode]
  * @param {string} [options.border]
- * @param {string} [options.theme='../themes/default.css']
+ * @param {string} [options.theme='../themes/${DEFAULT_THEME}.css']
  * @param {Function} [options.cb]
  */
 function buildPDF(options) {
@@ -60,7 +61,8 @@ function buildPDF(options) {
   const border = options.border;
 
   const opts = buildOptions();
-  opts.cssPath = theme || path.join(__dirname, '..', 'themes', 'default.css');
+  opts.cssPath =
+    theme || path.join(__dirname, '..', 'themes', `${DEFAULT_THEME}.css`);
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
 
   if (border) {
