@@ -1,5 +1,5 @@
 module.exports = {
-  extends: 'piecioshka',
+  extends: ['piecioshka', 'prettier'],
 
   // https://eslint.org/docs/user-guide/configuring#specifying-environments
   env: {
