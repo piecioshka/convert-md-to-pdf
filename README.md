@@ -13,13 +13,13 @@
 
 ## Features
 
-* ✅ Build PDF file form Markdown file
-* ✅ Generate a PDF file in the same directory as the Markdown file
-* ✅ Use one of the built-in themes
-* ✅ Support custom path to a theme file
-* ✅ Support set output directory and output file name
-* ✅ Support paper orientation (portrait, landscape)
-* ✅ Support paper border (default: 2cm for all sides)
+- ✅ Build PDF file form Markdown file
+- ✅ Generate a PDF file in the same directory as the Markdown file
+- ✅ Use one of the built-in themes
+- ✅ Support custom path to a theme file
+- ✅ Support set output directory and output file name
+- ✅ Support paper orientation (portrait, landscape)
+- ✅ Support paper border (default: 2cm for all sides)
 
 ## Usage
 
@@ -27,7 +27,7 @@
 const { buildPDF } = require('convert-md-to-pdf');
 buildPDF({
   source: '/tmp/source.md',
-  target: '/tmp/document.pdf'
+  target: '/tmp/document.pdf',
 });
 ```
 
@@ -56,7 +56,7 @@ convert-md-to-pdf -l
 ```bash
 convert-md-to-pdf /tmp/source.md -t clean
 convert-md-to-pdf /tmp/source.md -t dark
-convert-md-to-pdf /tmp/source.md -t default
+convert-md-to-pdf /tmp/source.md -t paper
 convert-md-to-pdf /tmp/source.md -t nord
 convert-md-to-pdf /tmp/source.md -t orange
 ```
