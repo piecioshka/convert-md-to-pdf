@@ -12,10 +12,14 @@ body {
   padding: 0;
 }
 
+/* Headers */
+
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: bold;
 }
+
+/* Paragraph */
 
 p {
   margin: 15px 0;
@@ -25,14 +29,18 @@ p:last-of-type {
   margin-bottom: 0;
 }
 
+/* Links */
+
 a[href] {
   color: #3498db;
   text-decoration: none;
 }
 
 a[href]:after {
-  content: ""
+  content: "";
 }
+
+/* Typography */
 
 strong {
   font-weight: bold;
@@ -49,8 +57,10 @@ blockquote {
   font-style: italic;
   padding: 0 0 0 10px;
   border-left: 3px solid #272822;
-  margin: 15px 0;
+  margin: 5px 0;
 }
+
+/* Listing */
 
 code {
   background-color: #eeeeee;
@@ -72,6 +82,8 @@ pre code {
   padding: 0;
 }
 
+/* Image */
+
 figure {
   border: 1px dotted black;
   padding: 5px;
@@ -79,9 +91,49 @@ figure {
 }
 
 img {
-  margin: 30px auto;
+  margin: 0 auto;
   text-align: center;
   border: 1px solid #eeeeee;
   padding: 3px;
   display: inline-block;
+}
+
+/* List */
+
+ul {
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  margin-left: 3px;
+}
+
+/* Columns */
+
+.columns {
+  width: 100%;
+}
+
+.column {
+  float: left;
+  padding-right: 10px;
+}
+
+.columns .column:last-of-type {
+  padding-right: 0;
+}
+
+.half-column {
+  width: 50%;
+}
+
+.quarter-column {
+  width: 25%;
+}
+
+.three-quarter-column {
+  width: 75%;
+}
+
+.clear {
+  clear: both;
 }
