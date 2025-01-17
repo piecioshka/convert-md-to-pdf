@@ -8,11 +8,11 @@ const { buildOutputFilename } = require('../src/file-helper');
 const { DEFAULT_THEME } = require('../src/config');
 
 yargs
-  .usage('Usage: convert-md-to-pdf <path/to/file.md> [options]')
-  .example('convert-md-to-pdf -l', '')
-  .example('convert-md-to-pdf doc.md -d my-files/ -o agreement.pdf', '')
-  .example('convert-md-to-pdf doc.md -t nord', '')
-  .example('convert-md-to-pdf doc.md -p ~/customs.css', '')
+  .usage('Usage: $0 <path/to/file.md> [options]')
+  .example('$0 -l', '')
+  .example('$0 doc.md -d my-files/ -o agreement.pdf', '')
+  .example('$0 doc.md -t nord', '')
+  .example('$0 doc.md -p ~/customs.css', '')
   .help('h')
   .option('t', {
     alias: 'theme',
