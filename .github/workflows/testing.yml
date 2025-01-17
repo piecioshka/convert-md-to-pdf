@@ -18,11 +18,6 @@ jobs:
         node-version: [16.x, 18.x, 20.x, 22.x]
 
     steps:
-      - name: Downgrade OpenSSL to 1.1
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libssl1.1
-
       - name: Checkout
         uses: actions/checkout@v4
 
