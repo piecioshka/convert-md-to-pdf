@@ -47,7 +47,7 @@ yargs
 
 const argv = yargs.argv;
 
-if (argv.list) {
+if (argv.listThemes) {
   displaySupportedThemes();
   process.exit(0);
 }
