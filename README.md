@@ -21,6 +21,7 @@
 - ✅ Support set output directory and output file name
 - ✅ Support paper orientation (portrait, landscape)
 - ✅ Support paper border (default: 2cm for all sides)
+- ✅ Support plugin: [Linkify](https://github.com/jonschlinkert/remarkable#linkify-plugin)
 
 ## Usage
 

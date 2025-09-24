@@ -17,6 +17,7 @@
   "dependencies": {
     "duplexer": "^0.1.2",
     "markdown-pdf": "^11.0.0",
+    "remarkable": "^2.0.1",
     "split": "^1.0.1",
     "through": "^2.3.8",
     "yargs": "^17.7.2"

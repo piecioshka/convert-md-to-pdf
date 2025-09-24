@@ -7,6 +7,7 @@ const markdownpdf = require('markdown-pdf');
 const through = require('through');
 const split = require('split');
 const duplexer = require('duplexer');
+const { linkify } = require('remarkable/linkify');
 
 const { getFormattedDate } = require('./date-helper');
 const { DEFAULT_THEME } = require('./config');
@@ -24,6 +25,7 @@ function buildOptions() {
     remarkable: {
       html: true,
       breaks: true,
+      plugins: [linkify],
     },
     preProcessMd: () => {
       const currentDateTime = getFormattedDate();
