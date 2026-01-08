@@ -47,12 +47,12 @@ const argv = minimist(process.argv.slice(2), {
   },
 });
 
-if (argv.help) {
+if (argv.h) {
   showHelp();
   process.exit(0);
 }
 
-if (argv['list-themes']) {
+if (argv.l) {
   displaySupportedThemes();
   process.exit(0);
 }
@@ -64,17 +64,17 @@ if (!source) {
   process.exit(1);
 }
 
-const destination = argv.destination
-  ? path.resolve(argv.destination)
+const destination = argv.d
+  ? path.resolve(argv.d)
   : path.join(path.dirname(source));
-const filename = argv.output ? argv.output : buildOutputFilename(source);
+const filename = argv.o ? argv.o : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme =
-  argv['theme-path'] || path.join(__dirname, '..', 'themes', `${argv.theme}.css`);
-const mode = ['portrait', 'landscape'].includes(argv.mode)
-  ? argv.mode
+  argv.p || path.join(__dirname, '..', 'themes', `${argv.t}.css`);
+const mode = ['portrait', 'landscape'].includes(argv.m)
+  ? argv.m
   : 'portrait';
-const border = argv.border || '2cm,2cm,2cm,2cm';
+const border = argv.b || '2cm,2cm,2cm,2cm';
 
 buildPDF({
   source,
