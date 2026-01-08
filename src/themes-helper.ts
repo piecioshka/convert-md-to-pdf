@@ -1,12 +1,10 @@
-'use strict';
+import * as path from 'path';
+import * as fs from 'fs';
+import { DEFAULT_THEME } from './config';
 
-const path = require('path');
-const fs = require('fs');
-const { DEFAULT_THEME } = require('./config');
+const themesDirectory = path.join(__dirname, '..', '..', 'themes');
 
-const themesDirectory = path.join(__dirname, '..', 'themes');
-
-function displaySupportedThemes() {
+export function displaySupportedThemes(): void {
   console.log('List of supported themes:');
   const files = fs.readdirSync(themesDirectory);
   files.forEach((theme) => {
@@ -15,7 +13,3 @@ function displaySupportedThemes() {
     console.log(`- ${value}`);
   });
 }
-
-module.exports = {
-  displaySupportedThemes,
-};

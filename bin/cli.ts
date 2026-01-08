@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const yargs = require('yargs');
-const { buildPDF } = require('../src/pdf-helper');
-const { displaySupportedThemes } = require('../src/themes-helper');
-const { buildOutputFilename } = require('../src/file-helper');
-const { DEFAULT_THEME } = require('../src/config');
+import * as path from 'path';
+import yargs from 'yargs';
+import { buildPDF } from '../src/pdf-helper';
+import { displaySupportedThemes } from '../src/themes-helper';
+import { buildOutputFilename } from '../src/file-helper';
+import { DEFAULT_THEME } from '../src/config';
 
-yargs
+const yargsInstance = yargs(process.argv.slice(2))
   .usage('Usage: $0 <path/to/file.md> [options]')
   .example('$0 -l', '')
   .example('$0 doc.md -d my-files/ -o agreement.pdf', '')
@@ -17,7 +17,7 @@ yargs
   .option('t', {
     alias: 'theme',
     default: DEFAULT_THEME,
-    description: 'Use on of built-in themes',
+    description: 'Use one of built-in themes',
   })
   .option('l', {
     alias: 'list-themes',
@@ -45,17 +45,26 @@ yargs
       'Spaces around the content, default = 2cm,2cm,2cm,2cm (top, right, bottom, left)',
   });
 
-const argv = yargs.argv;
+const argv = yargsInstance.argv as {
+  listThemes?: boolean;
+  _: (string | number)[];
+  destination?: string;
+  output?: string;
+  theme?: string;
+  themePath?: string;
+  mode?: string;
+  border?: string;
+};
 
 if (argv.listThemes) {
   displaySupportedThemes();
   process.exit(0);
 }
 
-const source = argv._[0];
+const source = argv._[0] as string | undefined;
 
 if (!source) {
-  yargs.showHelp();
+  yargsInstance.showHelp();
   process.exit(1);
 }
 
@@ -65,8 +74,8 @@ const destination = argv.destination
 const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme =
-  argv.themePath || path.join(__dirname, '..', 'themes', `${argv.theme}.css`);
-const mode = ['portrait', 'landscape'].includes(argv.mode)
+  argv.themePath || path.join(__dirname, '..', '..', 'themes', `${argv.theme}.css`);
+const mode = ['portrait', 'landscape'].includes(argv.mode || '')
   ? argv.mode
   : 'portrait';
 const border = argv.border || '2cm,2cm,2cm,2cm';

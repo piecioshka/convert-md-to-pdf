@@ -1,5 +1,29 @@
 module.exports = {
   extends: ['piecioshka', 'prettier'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  overrides: [
+    {
+      files: ['*.ts'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+      ],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'warn',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
+        '@typescript-eslint/ban-ts-comment': 'warn',
+      },
+    },
+  ],
+  ignorePatterns: ['dist/', '*.js', '!.eslintrc.js'],
 
   // https://eslint.org/docs/user-guide/configuring#specifying-environments
   env: {
@@ -27,6 +51,7 @@ module.exports = {
     'no-console': 'off',
     strict: 'off',
     'max-statements': 'off',
+    'valid-jsdoc': 'off',
   },
 
   // List of global variables.

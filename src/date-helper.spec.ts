@@ -1,6 +1,4 @@
-'use strict';
-
-const { getFormattedDate } = require('./date-helper');
+import { getFormattedDate } from './date-helper';
 
 describe('getFormattedDate', () => {
   it('should return proper date', () => {

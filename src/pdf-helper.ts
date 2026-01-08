@@ -1,18 +1,22 @@
-'use strict';
+import { strict as assert } from 'assert';
+import * as path from 'path';
+import markdownpdf = require('markdown-pdf');
+import type { MarkdownPdfOptions } from 'markdown-pdf';
+import through = require('through');
+import split = require('split');
+import duplexer = require('duplexer');
+import { linkify } from 'remarkable/linkify';
+import { getFormattedDate } from './date-helper';
+import { DEFAULT_THEME } from './config';
 
-const assert = require('assert');
-const path = require('path');
+interface PaperBorder {
+  top: string;
+  right: string;
+  bottom: string;
+  left: string;
+}
 
-const markdownpdf = require('markdown-pdf');
-const through = require('through');
-const split = require('split');
-const duplexer = require('duplexer');
-const { linkify } = require('remarkable/linkify');
-
-const { getFormattedDate } = require('./date-helper');
-const { DEFAULT_THEME } = require('./config');
-
-function buildOptions() {
+function buildOptions(): MarkdownPdfOptions {
   return {
     cssPath: null,
     paperBorder: JSON.stringify({
@@ -20,7 +24,7 @@ function buildOptions() {
       right: '2cm',
       bottom: '2cm',
       left: '2cm',
-    }),
+    } as PaperBorder),
     paperOrientation: 'portrait',
     remarkable: {
       html: true,
@@ -30,7 +34,7 @@ function buildOptions() {
     preProcessMd: () => {
       const currentDateTime = getFormattedDate();
       const splitter = split();
-      const replacer = through(function (data) {
+      const replacer = through(function (data: string) {
         this.queue(`${data.replace('$$SIGNATURE$$', currentDateTime)}\n`);
       });
       splitter.pipe(replacer);
@@ -41,17 +45,20 @@ function buildOptions() {
 
 // -----------------------------------------------------------------------------
 
+export interface BuildPDFOptions {
+  source: string;
+  target: string;
+  mode?: string;
+  border?: string;
+  theme?: string;
+  cb?: (file: string) => void;
+}
+
 /**
- * @access public
- * @param {Object} options
- * @param {string} options.source
- * @param {string} options.target
- * @param {string} [options.mode]
- * @param {string} [options.border]
- * @param {string} [options.theme='../themes/${DEFAULT_THEME}.css']
- * @param {Function} [options.cb]
+ * Build a PDF from a markdown file
+ * @param options - Configuration options for PDF generation
  */
-function buildPDF(options) {
+export function buildPDF(options: BuildPDFOptions): void {
   assert(typeof options.source === 'string', 'options.source is not a string');
   assert(typeof options.target === 'string', 'options.target is not a string');
 
@@ -64,20 +71,20 @@ function buildPDF(options) {
 
   const opts = buildOptions();
   opts.cssPath =
-    theme || path.join(__dirname, '..', 'themes', `${DEFAULT_THEME}.css`);
+    theme || path.join(__dirname, '..', '..', 'themes', `${DEFAULT_THEME}.css`);
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
 
   if (border) {
     const [top, right, bottom, left] = border
       .split(',')
       .map((value) => value.trim());
-    const paperBorder = JSON.stringify({ top, right, bottom, left });
-    opts.paperBorder = paperBorder;
+    const paperBorder: PaperBorder = { top, right, bottom, left };
+    opts.paperBorder = JSON.stringify(paperBorder);
   }
 
   markdownpdf(opts)
     .from(source)
-    .to(target, (err) => {
+    .to(target, (err: Error | null) => {
       if (err) {
         throw err;
       }
@@ -86,5 +93,3 @@ function buildPDF(options) {
       }
     });
 }
-
-module.exports = { buildPDF };

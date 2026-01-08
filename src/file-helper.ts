@@ -1,15 +1,9 @@
-'use strict';
+import * as path from 'path';
+import { getFormattedDate } from './date-helper';
 
-const path = require('path');
-const { getFormattedDate } = require('./date-helper');
-
-function buildOutputFilename(source) {
+export function buildOutputFilename(source: string): string {
   const extname = path.extname(source);
   const basename = path.basename(source, extname);
   const currentDateTime = getFormattedDate().replace(/[: ]/g, '-');
   return `${basename}-${currentDateTime}.pdf`;
 }
-
-module.exports = {
-  buildOutputFilename,
-};

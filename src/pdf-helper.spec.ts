@@ -1,15 +1,14 @@
-'use strict';
+import * as path from 'path';
+import * as fs from 'fs';
+import { buildPDF } from './pdf-helper';
 
-const path = require('path');
-const fs = require('fs');
-const { buildPDF } = require('./pdf-helper');
 const root = path.join(__dirname, '..');
 
-function isFileExistAndIsNotEmpty(file) {
+function isFileExistAndIsNotEmpty(file: string): boolean {
   try {
     const stat = fs.statSync(file);
     return stat.isFile() && stat.size > 0;
-  } catch (_err) {
+  } catch {
     return false;
   }
 }
