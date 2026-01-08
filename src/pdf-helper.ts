@@ -82,7 +82,7 @@ export function buildPDF(options: BuildPDFOptions): void {
 
   const opts = buildOptions();
   opts.cssPath =
-    theme || path.join(__dirname, '..', 'themes', `${DEFAULT_THEME}.css`);
+    theme || path.join(__dirname, '..', '..', 'themes', `${DEFAULT_THEME}.css`);
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
 
   if (border) {

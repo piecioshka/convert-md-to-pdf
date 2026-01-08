@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 import * as path from 'path';
-import * as yargs from 'yargs';
+import yargs from 'yargs';
 import { buildPDF } from '../src/pdf-helper';
 import { displaySupportedThemes } from '../src/themes-helper';
 import { buildOutputFilename } from '../src/file-helper';
 import { DEFAULT_THEME } from '../src/config';
 
-const yargsInstance = yargs
+const yargsInstance = yargs(process.argv.slice(2))
   .usage('Usage: $0 <path/to/file.md> [options]')
   .example('$0 -l', '')
   .example('$0 doc.md -d my-files/ -o agreement.pdf', '')
@@ -74,7 +74,7 @@ const destination = argv.destination
 const filename = argv.output ? argv.output : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme =
-  argv.themePath || path.join(__dirname, '..', 'themes', `${argv.theme}.css`);
+  argv.themePath || path.join(__dirname, '..', '..', 'themes', `${argv.theme}.css`);
 const mode = ['portrait', 'landscape'].includes(argv.mode || '')
   ? argv.mode
   : 'portrait';

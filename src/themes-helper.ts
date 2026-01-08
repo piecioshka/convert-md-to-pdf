@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { DEFAULT_THEME } from './config';
 
-const themesDirectory = path.join(__dirname, '..', 'themes');
+const themesDirectory = path.join(__dirname, '..', '..', 'themes');
 
 export function displaySupportedThemes(): void {
   console.log('List of supported themes:');
