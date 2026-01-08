@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^5.1.13",
-    "eslint": "^9.39.2",
+    "eslint": "^8.57.1",
     "eslint-config-piecioshka": "^2.3.7",
     "eslint-config-prettier": "^10.1.8",
     "jasmine": "^5.13.0",
