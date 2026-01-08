@@ -17,7 +17,7 @@ const yargsInstance = yargs(process.argv.slice(2))
   .option('t', {
     alias: 'theme',
     default: DEFAULT_THEME,
-    description: 'Use on of built-in themes',
+    description: 'Use one of built-in themes',
   })
   .option('l', {
     alias: 'list-themes',

@@ -1,6 +1,7 @@
 import { strict as assert } from 'assert';
 import * as path from 'path';
 import markdownpdf = require('markdown-pdf');
+import type { MarkdownPdfOptions } from 'markdown-pdf';
 import through = require('through');
 import split = require('split');
 import duplexer = require('duplexer');
@@ -13,18 +14,6 @@ interface PaperBorder {
   right: string;
   bottom: string;
   left: string;
-}
-
-interface MarkdownPdfOptions {
-  cssPath: string | null;
-  paperBorder: string;
-  paperOrientation: string;
-  remarkable: {
-    html: boolean;
-    breaks: boolean;
-    plugins: unknown[];
-  };
-  preProcessMd: () => NodeJS.ReadWriteStream;
 }
 
 function buildOptions(): MarkdownPdfOptions {

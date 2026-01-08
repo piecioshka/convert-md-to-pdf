@@ -1,5 +1,5 @@
 declare module 'markdown-pdf' {
-  interface MarkdownPdfOptions {
+  export interface MarkdownPdfOptions {
     cssPath?: string | null;
     paperBorder?: string;
     paperOrientation?: string;
