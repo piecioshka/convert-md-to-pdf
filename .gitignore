@@ -7,3 +7,6 @@ coverage/
 dist/
 
 *.pdf
+
+# TypeScript build artifacts
+*.tsbuildinfo
