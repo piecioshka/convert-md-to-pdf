@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install OpenSSL providers
+        run: sudo apt-get update && sudo apt-get install --reinstall openssl libssl-dev
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -30,7 +33,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
         env:
-            NODE_OPTIONS: "--openssl-legacy-provider"
+          NODE_OPTIONS: '--openssl-legacy-provider'
       - run: npm run lint --if-present
       - run: npm test
       - run: npm run e2e --if-present
