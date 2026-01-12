@@ -34,7 +34,7 @@
     "url": "git+ssh://git@github.com/piecioshka/convert-md-to-pdf.git"
   },
   "engines": {
-    "node": ">=14.20.1"
+    "node": ">=20.19.6"
   },
   "files": [
     "bin",
