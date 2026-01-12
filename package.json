@@ -9,9 +9,9 @@
     "url": "https://piecioshka.pl/"
   },
   "scripts": {
-    "clear": "rm -rf tmp/ dist/ coverage/ .nyc_output/ mock/*.pdf",
-    "test": "jasmine src/**/*.spec.js --reporter=jasmine-console-reporter",
-    "coverage": "nyc npm run test && nyc report --reporter=html",
+    "clear": "rm -rf tmp/ dist/ coverage/ mock/*.pdf",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -23,13 +23,11 @@
     "through": "^2.3.8"
   },
   "devDependencies": {
-    "@types/jasmine": "^5.1.14",
+    "@types/jest": "^29.5.14",
     "eslint": "^8.57.1",
     "eslint-config-piecioshka": "^2.3.7",
     "eslint-config-prettier": "^10.1.8",
-    "jasmine": "^5.13.0",
-    "jasmine-console-reporter": "^3.1.0",
-    "nyc": "^17.1.0"
+    "jest": "^29.7.0"
   },
   "repository": {
     "type": "git",
