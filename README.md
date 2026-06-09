@@ -10,6 +10,8 @@
 
 🔨 Convert Markdown file to PDF file
 
+![](demo/convert-md-to-pdf.gif)
+
 > Give a ⭐️ if this project helped you!
 
 ## Features
