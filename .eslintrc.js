@@ -31,4 +31,26 @@ module.exports = {
 
   // List of global variables.
   globals: {},
+
+  // TypeScript-specific configuration.
+  overrides: [
+    {
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+      plugins: ['@typescript-eslint'],
+      extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
+      rules: {
+        indent: 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          { argsIgnorePattern: '^_' },
+        ],
+      },
+    },
+  ],
 };

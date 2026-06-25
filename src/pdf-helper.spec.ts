@@ -1,16 +1,20 @@
-'use strict';
+import { buildPDF } from './pdf-helper';
 
-const { buildPDF } = require('./pdf-helper');
+interface CapturedOptions {
+  paperBorder?: string;
+  paperOrientation?: string;
+  preProcessMd?: () => NodeJS.ReadWriteStream;
+}
 
-let mockError = null;
-let capturedOptions = null;
+let mockError: Error | null = null;
+let capturedOptions: CapturedOptions | null = null;
 
 jest.mock('markdown-pdf', () => {
-  return jest.fn((opts) => {
+  return jest.fn((opts: CapturedOptions) => {
     capturedOptions = opts;
     return {
       from: () => ({
-        to: (target, cb) => {
+        to: (_target: string, cb: (err: Error | null) => void) => {
           cb(mockError);
         },
       }),
@@ -58,8 +62,13 @@ describe('PDFHelper', () => {
       border: '1cm, 2cm, 3cm, 4cm',
       cb(file) {
         expect(file).toEqual('/dist/example-border.pdf');
-        expect(capturedOptions.paperBorder).toEqual(
-          JSON.stringify({ top: '1cm', right: '2cm', bottom: '3cm', left: '4cm' })
+        expect(capturedOptions?.paperBorder).toEqual(
+          JSON.stringify({
+            top: '1cm',
+            right: '2cm',
+            bottom: '3cm',
+            left: '4cm',
+          }),
         );
         done();
       },
@@ -73,7 +82,7 @@ describe('PDFHelper', () => {
       mode: 'landscape',
       cb(file) {
         expect(file).toEqual('/dist/example-landscape.pdf');
-        expect(capturedOptions.paperOrientation).toEqual('landscape');
+        expect(capturedOptions?.paperOrientation).toEqual('landscape');
         done();
       },
     });
@@ -101,7 +110,10 @@ describe('PDFHelper', () => {
       source: '/mock/example.md',
       target: '/dist/example-signature.pdf',
       cb() {
-        expect(capturedOptions.preProcessMd).toBeDefined();
+        expect(capturedOptions).not.toBeNull();
+        if (!capturedOptions?.preProcessMd) {
+          throw new Error('preProcessMd is not defined');
+        }
         const processor = capturedOptions.preProcessMd();
         expect(processor).toBeDefined();
 
@@ -122,12 +134,14 @@ describe('PDFHelper', () => {
 
   it('should throw when source is not a string', () => {
     expect(() => {
+      // @ts-expect-error testing runtime validation with an invalid type
       buildPDF({ source: 123, target: '/dist/example.pdf' });
     }).toThrow('options.source is not a string');
   });
 
   it('should throw when target is not a string', () => {
     expect(() => {
+      // @ts-expect-error testing runtime validation with an invalid type
       buildPDF({ source: '/mock/example.md', target: 123 });
     }).toThrow('options.target is not a string');
   });

@@ -1,18 +1,37 @@
-'use strict';
+import assert from 'assert';
+import path from 'path';
 
-const assert = require('assert');
-const path = require('path');
+import markdownpdf from 'markdown-pdf';
+import through from 'through';
+import split from 'split';
+import duplexer from 'duplexer';
+import { linkify } from 'remarkable/linkify';
 
-const markdownpdf = require('markdown-pdf');
-const through = require('through');
-const split = require('split');
-const duplexer = require('duplexer');
-const { linkify } = require('remarkable/linkify');
+import { getFormattedDate } from './date-helper';
+import { DEFAULT_THEME } from './config';
 
-const { getFormattedDate } = require('./date-helper');
-const { DEFAULT_THEME } = require('./config');
+export interface BuildPDFOptions {
+  source: string;
+  target: string;
+  mode?: string;
+  border?: string;
+  theme?: string;
+  cb?: (file: string) => void;
+}
 
-function buildOptions() {
+interface BuildOptions {
+  cssPath: string | null;
+  paperBorder: string;
+  paperOrientation: string;
+  remarkable: {
+    html: boolean;
+    breaks: boolean;
+    plugins: unknown[];
+  };
+  preProcessMd: () => NodeJS.ReadWriteStream;
+}
+
+function buildOptions(): BuildOptions {
   return {
     cssPath: null,
     paperBorder: JSON.stringify({
@@ -41,17 +60,7 @@ function buildOptions() {
 
 // -----------------------------------------------------------------------------
 
-/**
- * @access public
- * @param {Object} options
- * @param {string} options.source
- * @param {string} options.target
- * @param {string} [options.mode]
- * @param {string} [options.border]
- * @param {string} [options.theme='../themes/${DEFAULT_THEME}.css']
- * @param {Function} [options.cb]
- */
-function buildPDF(options) {
+export function buildPDF(options: BuildPDFOptions): void {
   assert(typeof options.source === 'string', 'options.source is not a string');
   assert(typeof options.target === 'string', 'options.target is not a string');
 
@@ -86,5 +95,3 @@ function buildPDF(options) {
       }
     });
 }
-
-module.exports = { buildPDF };

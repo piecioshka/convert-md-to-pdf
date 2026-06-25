@@ -10,9 +10,11 @@
   },
   "scripts": {
     "clear": "rm -rf tmp/ dist/ coverage/ mock/*.pdf",
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
-    "lint": "eslint ."
+    "lint": "eslint . --ext .js,.ts"
   },
   "dependencies": {
     "duplexer": "^0.1.2",
@@ -24,10 +26,16 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.19.43",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.1",
     "eslint-config-piecioshka": "^2.3.7",
     "eslint-config-prettier": "^10.1.8",
-    "jest": "^30.2.0"
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.11",
+    "typescript": "^5.9.3"
   },
   "repository": {
     "type": "git",
@@ -38,9 +46,8 @@
   },
   "files": [
     "bin",
-    "src",
+    "dist",
     "themes",
-    "index.js",
     "package.json",
     "README.md",
     "!**/*.spec.*",
@@ -53,7 +60,8 @@
     "markdown",
     "pdf"
   ],
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "convert-md-to-pdf": "bin/cli.js"
   }
