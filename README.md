@@ -109,8 +109,7 @@ convert-md-to-pdf /tmp/source.md --border 2cm,3cm,2cm,3cm
 
 ### ➡️ Use case: Display the date of generation in the output file
 
-During the conversion, the following phrase will be replaced with date & time.
-For example:
+During the conversion, the following phrase will be replaced with date & time. For example:
 
 ```md
 Generated on: $$SIGNATURE$$
@@ -122,10 +121,20 @@ It will be replaced with:
 Generated on: 2023-09-08 23:16:35
 ```
 
+## 🛠️ Development
+
+The package is written in TypeScript (sources live in `src/`) and is published as compiled CommonJS in `dist/`.
+
+```bash
+npm install   # install dependencies
+npm run build # compile TypeScript to dist/
+npm run lint  # run ESLint
+npm test      # run unit tests
+```
+
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />
-Feel free to check [issues page](/issues/).
+Contributions, issues and feature requests are welcome!<br /> Feel free to check [issues page](/issues/).
 
 ## Related
 

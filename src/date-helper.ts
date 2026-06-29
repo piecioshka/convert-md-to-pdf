@@ -1,8 +1,6 @@
-'use strict';
+const toTwoZeros = (value: number): string => String(value).padStart(2, '0');
 
-const toTwoZeros = (value) => String(value).padStart(2, '0');
-
-function getFormattedDate(d = new Date()) {
+export function getFormattedDate(d: Date = new Date()): string {
   const year = d.getFullYear();
   const month = toTwoZeros(d.getMonth() + 1);
   const day = toTwoZeros(d.getDate());
@@ -11,7 +9,3 @@ function getFormattedDate(d = new Date()) {
   const seconds = toTwoZeros(d.getSeconds());
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
-
-module.exports = {
-  getFormattedDate,
-};
