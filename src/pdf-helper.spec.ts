@@ -55,21 +55,13 @@ describe('PDFHelper', () => {
     });
   });
 
-  it('should handle custom border option', (done) => {
+  it('should use a zero paper border so CSS padding controls the margin', (done) => {
     buildPDF({
       source: '/mock/example.md',
       target: '/dist/example-border.pdf',
-      border: '1cm, 2cm, 3cm, 4cm',
       cb(file) {
         expect(file).toEqual('/dist/example-border.pdf');
-        expect(capturedOptions?.paperBorder).toEqual(
-          JSON.stringify({
-            top: '1cm',
-            right: '2cm',
-            bottom: '3cm',
-            left: '4cm',
-          }),
-        );
+        expect(capturedOptions?.paperBorder).toEqual('0');
         done();
       },
     });

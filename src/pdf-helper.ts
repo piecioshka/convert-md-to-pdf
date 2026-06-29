@@ -14,7 +14,6 @@ export interface BuildPDFOptions {
   source: string;
   target: string;
   mode?: string;
-  border?: string;
   theme?: string;
   cb?: (file: string) => void;
 }
@@ -34,12 +33,10 @@ interface BuildOptions {
 function buildOptions(): BuildOptions {
   return {
     cssPath: null,
-    paperBorder: JSON.stringify({
-      top: '2cm',
-      right: '2cm',
-      bottom: '2cm',
-      left: '2cm',
-    }),
+    // No physical paper border: the margin lives in CSS as `body` padding so
+    // the theme background covers it (see themes/paper.css). A paper border is
+    // outside the CSS viewport and would stay white on dark themes (issue #3).
+    paperBorder: '0',
     paperOrientation: 'portrait',
     remarkable: {
       html: true,
@@ -69,20 +66,11 @@ export function buildPDF(options: BuildPDFOptions): void {
   const cb = options.cb;
   const theme = options.theme;
   const mode = options.mode;
-  const border = options.border;
 
   const opts = buildOptions();
   opts.cssPath =
     theme || path.join(__dirname, '..', 'themes', `${DEFAULT_THEME}.css`);
   opts.paperOrientation = mode ? mode : opts.paperOrientation;
-
-  if (border) {
-    const [top, right, bottom, left] = border
-      .split(',')
-      .map((value) => value.trim());
-    const paperBorder = JSON.stringify({ top, right, bottom, left });
-    opts.paperBorder = paperBorder;
-  }
 
   markdownpdf(opts)
     .from(source)

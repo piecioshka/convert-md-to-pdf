@@ -18,7 +18,6 @@ Options:
   -d, --destination    Directory for output file
   -o, --output         Name of output file
   -m, --mode           Paper orientation, either portrait or landscape
-  -b, --border         Spaces around the content, default = 2cm,2cm,2cm,2cm (top, right, bottom, left)
 
 Examples:
   convert-md-to-pdf -l
@@ -29,7 +28,7 @@ Examples:
 }
 
 const argv = minimist(process.argv.slice(2), {
-  string: ['theme', 'theme-path', 'destination', 'output', 'mode', 'border'],
+  string: ['theme', 'theme-path', 'destination', 'output', 'mode'],
   boolean: ['help', 'list-themes'],
   alias: {
     h: 'help',
@@ -39,7 +38,6 @@ const argv = minimist(process.argv.slice(2), {
     d: 'destination',
     o: 'output',
     m: 'mode',
-    b: 'border',
   },
   default: {
     theme: DEFAULT_THEME,
@@ -70,14 +68,12 @@ const filename = argv.o ? argv.o : buildOutputFilename(source);
 const target = destination && filename && path.join(destination, filename);
 const theme = argv.p || path.join(__dirname, '..', 'themes', `${argv.t}.css`);
 const mode = ['portrait', 'landscape'].includes(argv.m) ? argv.m : 'portrait';
-const border = argv.b || '2cm,2cm,2cm,2cm';
 
 buildPDF({
   source,
   target,
   theme,
   mode,
-  border,
   cb(file) {
     console.log('Created:', file);
   },

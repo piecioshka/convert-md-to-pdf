@@ -1,4 +1,8 @@
-@import "./paper.css";
+@import './paper.css';
+
+html {
+  background: #000;
+}
 
 body {
   background: #000;
