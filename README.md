@@ -18,6 +18,18 @@
 - ✅ Support paper orientation (portrait, landscape)
 - ✅ Support plugin: [Linkify](https://github.com/jonschlinkert/remarkable#linkify-plugin)
 
+## Themes
+
+Five built-in themes are available via the `-t, --theme` option. Previews are rendered from [`mock/example.md`](mock/example.md).
+
+| Theme | Preview |
+| --- | --- |
+| `paper` _(default)_ | <img src="docs/themes/paper.png" alt="paper theme preview" width="320" /> |
+| `clean` | <img src="docs/themes/clean.png" alt="clean theme preview" width="320" /> |
+| `dark` | <img src="docs/themes/dark.png" alt="dark theme preview" width="320" /> |
+| `nord` | <img src="docs/themes/nord.png" alt="nord theme preview" width="320" /> |
+| `orange` | <img src="docs/themes/orange.png" alt="orange theme preview" width="320" /> |
+
 ## Usage
 
 Installation:
