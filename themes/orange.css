@@ -1,6 +1,11 @@
-@import "./paper.css";
+@import './paper.css';
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   background: rgb(255, 123, 71);
   color: #fff;
   padding: 0 5px 3px 5px;

@@ -1,22 +1,32 @@
-@import "./paper.css";
+@import './paper.css';
 
 body {
-  color: #2E3440;
-  font-family: "Open Sans", serif;
+  color: #2e3440;
+  font-family: 'Open Sans', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  background-color: #4C566A;
-  color: #ECEFF4;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: #4c566a;
+  color: #eceff4;
   padding: 0 5px 3px 5px;
 }
 
 h1 {
-  background-color: #4C566A;
+  background-color: #4c566a;
   color: #fff;
 }
 
-h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em {
+h1 > em,
+h2 > em,
+h3 > em,
+h4 > em,
+h5 > em,
+h6 > em {
   font-style: normal;
   font-weight: 200;
 }

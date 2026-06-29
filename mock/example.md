@@ -34,18 +34,18 @@
 <img src="https://picsum.photos/500/100" alt=""/>
 
 0. Item with _emphasis text_
-0. Item with **some bold text**
-0. Item with <mark>marked text</mark>
-0. Item with <s>deleted text</s>
-0. Item with <sup>superscript text</sup>
-0. Item with <sub>subscript text</sub>
-0. Item with <kbd>keyboard text</kbd>
-0. Item with <code>inline code text</code>
-0. Item with <abbr title="Abbreviation">abbr text</abbr>
-0. Item with <a href="https://example.com">link text</a>
-0. Item with <cite>cite text</cite>
-0. Item with <del>deleted text</del>
-0. Item with <ins>inserted text</ins>
+1. Item with **some bold text**
+2. Item with <mark>marked text</mark>
+3. Item with <s>deleted text</s>
+4. Item with <sup>superscript text</sup>
+5. Item with <sub>subscript text</sub>
+6. Item with <kbd>keyboard text</kbd>
+7. Item with <code>inline code text</code>
+8. Item with <abbr title="Abbreviation">abbr text</abbr>
+9. Item with <a href="https://example.com">link text</a>
+10. Item with <cite>cite text</cite>
+11. Item with <del>deleted text</del>
+12. Item with <ins>inserted text</ins>
 
 <figure>
   <img src="https://picsum.photos/500/100" alt=""/>
